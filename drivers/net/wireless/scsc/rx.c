@@ -486,7 +486,7 @@ static int slsi_populate_ssid_info(struct slsi_dev *sdev, struct netdev_vif *nde
 			slsi_populate_bssid_info(sdev, ndev_vif, beacon_probe_skb, &ssid_info->bssid_list);
 			list_add(&ssid_info->list, &ndev_vif->sta.ssid_info);
 		} else {
-			SLSI_ERR(sdev, "Failed to allocate entry : %.*s kmalloc() failed\n", scan_result->ssid, &scan_result->ssid_length);
+			SLSI_ERR(sdev, "Failed to allocate entry : %.*s kmalloc() failed\n", scan_result->ssid_length, scan_result->ssid);
 		}
 		slsi_extract_mbssids(sdev, ndev_vif, mgmt, beacon_probe_skb, scan_result->akm_type);
 		scan_result = scan_result->next;
